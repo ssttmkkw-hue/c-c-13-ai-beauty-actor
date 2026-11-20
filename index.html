@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>美颜演员 · AI 漫剧主角 | Beauty Actor</title>
+    <meta name="description" content="Beautiful anime / manhua-style AI actors for web stage plays — VRM + MToon + cinematic post-processing." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='28' fill='%23f3b6c8'/><circle cx='24' cy='30' r='5' fill='%23452a4e'/><circle cx='40' cy='30' r='5' fill='%23452a4e'/><circle cx='25.5' cy='28.5' r='1.6' fill='white'/><circle cx='41.5' cy='28.5' r='1.6' fill='white'/></svg>" />
+    <script type="module" crossorigin src="/c-c-13-ai-beauty-actor/assets/index-NtypCOmB.js"></script>
+    <link rel="stylesheet" crossorigin href="/c-c-13-ai-beauty-actor/assets/index-CjZnYwsW.css">
+  </head>
+  <body>
+    <div id="app">
+      <div id="viewport"></div>
+
+      <header class="brand">
+        <div class="brand-mark">美</div>
+        <div>
+          <h1>美颜演员 <span>AI 漫剧主角</span></h1>
+          <p>Beauty-first AI actors · VRM · MToon · 电影级调色</p>
+        </div>
+      </header>
+
+      <div id="title-card" class="title-card hidden">
+        <div class="title-main"></div>
+        <div class="title-rule"></div>
+        <div class="title-sub"></div>
+      </div>
+
+      <div id="subtitle" class="subtitle hidden">
+        <div class="sub-name"></div>
+        <div class="sub-text"></div>
+      </div>
+
+      <div id="transport" class="transport">
+        <button id="btn-restart" title="从头播放 (R)" aria-label="从头播放">
+          <svg viewBox="0 0 24 24"><path d="M12 5V2L7 6l5 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z"/></svg>
+        </button>
+        <button id="btn-play" class="primary" title="播放 / 暂停 (空格)" aria-label="播放">
+          <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+        </button>
+        <button id="btn-stop" title="停止 (S)" aria-label="停止">
+          <svg viewBox="0 0 24 24"><path d="M7 7h10v10H7z"/></svg>
+        </button>
+        <div class="progress"><div class="progress-bar"></div></div>
+        <div class="scene-label">《晚风》 第一集</div>
+      </div>
+
+      <aside id="panel" class="panel">
+        <button id="panel-toggle" class="panel-toggle" aria-label="收起面板">
+          <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <div class="panel-inner">
+          <section>
+            <h2>选角 <small>Casting</small></h2>
+            <div class="cast-row">
+              <label>女主</label>
+              <div class="chips" id="cast-heroine"></div>
+            </div>
+            <div class="cast-row">
+              <label>男主</label>
+              <div class="chips" id="cast-hero"></div>
+            </div>
+          </section>
+          <section>
+            <h2>造型 <small>Styling</small></h2>
+            <div class="seg" id="focus-tabs"></div>
+            <div class="actor-card" id="actor-card"></div>
+            <h3>服装</h3>
+            <div class="chips" id="outfits"></div>
+            <h3>发色</h3>
+            <div class="chips" id="hairs"></div>
+          </section>
+          <section>
+            <h2>表演 <small>Performance</small></h2>
+            <h3>表情</h3>
+            <div class="chips" id="expressions"></div>
+            <h3>动作</h3>
+            <div class="chips" id="gestures"></div>
+            <div class="say-row">
+              <input id="say-input" type="text" value="今晚的月色真美。" maxlength="60" aria-label="台词" />
+              <button id="say-btn">说</button>
+            </div>
+          </section>
+          <section>
+            <h2>镜头 <small>Camera</small></h2>
+            <div class="chips" id="shots"></div>
+            <h3>场景</h3>
+            <div class="chips" id="backdrops"></div>
+          </section>
+          <section>
+            <h2>画质 <small>Look</small></h2>
+            <div class="toggles">
+              <label><input type="checkbox" id="t-post" checked /> 后期调色</label>
+              <label><input type="checkbox" id="t-dof" checked /> 景深虚化</label>
+              <label><input type="checkbox" id="t-wind" checked /> 发丝微风</label>
+              <label><input type="checkbox" id="t-tts" /> 语音朗读</label>
+            </div>
+          </section>
+          <footer class="panel-foot">模型：VRoid 官方 / pixiv 样例（允许再分发）· 详见 docs/CREDITS.md</footer>
+        </div>
+      </aside>
+
+      <div id="loading" class="loading">
+        <div class="loading-mark">美</div>
+        <div class="loading-text">演员化妆中…</div>
+        <div class="loading-bar"><div></div></div>
+      </div>
+      <div id="fps" class="fps hidden"></div>
+    </div>
+  </body>
+</html>
